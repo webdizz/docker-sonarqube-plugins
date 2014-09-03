@@ -48,7 +48,7 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-sonargraph-plugin-${SONARGRAPH_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-sonargraph-plugin/${SONARGRAPH_PLUGIN_VERSION}/sonar-sonargraph-plugin-${SONARGRAPH_PLUGIN_VERSION}.jar
 
-ENV JS_PLUGIN_VERSION 3.3
+ENV JS_PLUGIN_VERSION 2.0
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/javascript/sonar-javascript-plugin/${JS_PLUGIN_VERSION}/sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar
