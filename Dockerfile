@@ -53,3 +53,12 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/javascript/sonar-javascript-plugin/${JS_PLUGIN_VERSION}/sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar
 
+ENV SCOVERAGE_PLUGIN_VERSION 1.0.2
+RUN cd /opt/sonar/extensions/plugins && \
+        curl -sLo sonar-scoverage-plugin-${SCOVERAGE_PLUGIN_VERSION}.jar \
+	https://github.com/RadoBuransky/sonar-scoverage-plugin/releases/download/${SCOVERAGE_PLUGIN_VERSION}/sonar-scoverage-plugin-${SCOVERAGE_PLUGIN_VERSION}.jar
+			
+ENV SCALA_PLUGIN_VERSION 1.0.0
+RUN cd /opt/sonar/extensions/plugins && \
+        curl -sLo sonar-scala-plugin-${SCALA_PLUGIN_VERSION}.jar \
+	https://github.com/SonarCommunity/sonar-scala/releases/download/${SCALA_PLUGIN_VERSION}-SNAPSHOT/sonar-scala-plugin-${SCALA_PLUGIN_VERSION}-SNAPSHOT.jar
