@@ -13,7 +13,7 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-scm-activity-plugin-${SCMACT_PLUGIN_VERSION}.jar \
 	http://repository.codehaus.org/org/codehaus/sonar-plugins/scm-activity/sonar-scm-activity-plugin/${SCMACT_PLUGIN_VERSION}/sonar-scm-activity-plugin-${SCMACT_PLUGIN_VERSION}.jar
 
-ENV ISSUES_PLUGIN_VERSION 1.3
+ENV ISSUES_PLUGIN_VERSION 1.8
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-issue-assign-plugin-${ISSUES_PLUGIN_VERSION}.jar \
 	http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-issue-assign-plugin/${ISSUES_PLUGIN_VERSION}/sonar-issue-assign-plugin-${ISSUES_PLUGIN_VERSION}.jar
@@ -38,7 +38,7 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-timeline-plugin-${TIMELINE_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-timeline-plugin/${TIMELINE_PLUGIN_VERSION}/sonar-timeline-plugin-${TIMELINE_PLUGIN_VERSION}.jar
 
-ENV WIDGET_PLUGIN_VERSION 1.5
+ENV WIDGET_PLUGIN_VERSION 1.6
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-widget-lab-plugin-${WIDGET_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-widget-lab-plugin/${WIDGET_PLUGIN_VERSION}/sonar-widget-lab-plugin-${WIDGET_PLUGIN_VERSION}.jar
@@ -48,17 +48,32 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-sonargraph-plugin-${SONARGRAPH_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-sonargraph-plugin/${SONARGRAPH_PLUGIN_VERSION}/sonar-sonargraph-plugin-${SONARGRAPH_PLUGIN_VERSION}.jar
 
-ENV JS_PLUGIN_VERSION 2.0
+ENV JS_PLUGIN_VERSION 2.1
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/javascript/sonar-javascript-plugin/${JS_PLUGIN_VERSION}/sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar
 
-ENV SCOVERAGE_PLUGIN_VERSION 1.0.2
+ENV COVERAGE_PLUGIN_VERSION 1.10
 RUN cd /opt/sonar/extensions/plugins && \
         curl -sLo sonar-scoverage-plugin-${SCOVERAGE_PLUGIN_VERSION}.jar \
 	https://github.com/RadoBuransky/sonar-scoverage-plugin/releases/download/${SCOVERAGE_PLUGIN_VERSION}/sonar-scoverage-plugin-${SCOVERAGE_PLUGIN_VERSION}.jar
-			
+
 ENV SCALA_PLUGIN_VERSION 1.0.0
 RUN cd /opt/sonar/extensions/plugins && \
         curl -sLo sonar-scala-plugin-${SCALA_PLUGIN_VERSION}.jar \
 	https://github.com/SonarCommunity/sonar-scala/releases/download/${SCALA_PLUGIN_VERSION}-SNAPSHOT/sonar-scala-plugin-${SCALA_PLUGIN_VERSION}-SNAPSHOT.jar
+
+ENV ISSUE_ASSIGN_PLUGIN_VERSION 1.4
+RUN cd /opt/sonar/extensions/plugins && \
+	curl -sLo sonar-issue-assign-plugin-${JS_PLUGIN_VERSION}.jar \
+    http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-issue-assign-plugin/${ISSUE_ASSIGN_PLUGIN_VERSION}/sonar-issue-assign-plugin-${ISSUE_ASSIGN_PLUGIN_VERSION}.jar
+
+ENV BUILD_BREAKER_PLUGIN_VERSION 1.1
+RUN cd /opt/sonar/extensions/plugins && \
+	curl -sLo sonar-build-breaker-plugin-${JS_PLUGIN_VERSION}.jar \
+    http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-build-breaker-plugin/${BUILD_BREAKER_PLUGIN_VERSION}/sonar-build-breaker-plugin-${BUILD_BREAKER_PLUGIN_VERSION}.jar
+
+ENV ISSUES_DENSITY_PLUGIN_VERSION 1.0
+RUN cd /opt/sonar/extensions/plugins && \
+	curl -sLo sonar-issues-density-plugin-${JS_PLUGIN_VERSION}.jar \
+    http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-issues-density-plugin/${ISSUES_DENSITY_PLUGIN_VERSION}/sonar-issues-density-plugin-${ISSUES_DENSITY_PLUGIN_VERSION}.jar
