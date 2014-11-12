@@ -3,20 +3,11 @@ FROM webdizz/sonarqube:latest
 MAINTAINER Izzet Mustafaiev "izzet@mustafaiev.com"
 
 #Plugins
-ENV BREAKER_PLUGIN_VERSION 1.1
-RUN cd /opt/sonar/extensions/plugins && \
-	curl -sLo sonar-build-breaker-plugin-${BREAKER_PLUGIN_VERSION}.jar \
-	http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-build-breaker-plugin/${BREAKER_PLUGIN_VERSION}/sonar-build-breaker-plugin-${BREAKER_PLUGIN_VERSION}.jar
 
 ENV SCMACT_PLUGIN_VERSION 1.8
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-scm-activity-plugin-${SCMACT_PLUGIN_VERSION}.jar \
 	http://repository.codehaus.org/org/codehaus/sonar-plugins/scm-activity/sonar-scm-activity-plugin/${SCMACT_PLUGIN_VERSION}/sonar-scm-activity-plugin-${SCMACT_PLUGIN_VERSION}.jar
-
-ENV ISSUES_PLUGIN_VERSION 1.8
-RUN cd /opt/sonar/extensions/plugins && \
-	curl -sLo sonar-issue-assign-plugin-${ISSUES_PLUGIN_VERSION}.jar \
-	http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-issue-assign-plugin/${ISSUES_PLUGIN_VERSION}/sonar-issue-assign-plugin-${ISSUES_PLUGIN_VERSION}.jar
 
 ENV USELESS_CODE_PLUGIN_VERSION 1.0
 RUN cd /opt/sonar/extensions/plugins && \
@@ -53,7 +44,7 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/javascript/sonar-javascript-plugin/${JS_PLUGIN_VERSION}/sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar
 
-ENV COVERAGE_PLUGIN_VERSION 1.10
+ENV SCOVERAGE_PLUGIN_VERSION 1.1.0
 RUN cd /opt/sonar/extensions/plugins && \
         curl -sLo sonar-scoverage-plugin-${SCOVERAGE_PLUGIN_VERSION}.jar \
 	https://github.com/RadoBuransky/sonar-scoverage-plugin/releases/download/${SCOVERAGE_PLUGIN_VERSION}/sonar-scoverage-plugin-${SCOVERAGE_PLUGIN_VERSION}.jar
