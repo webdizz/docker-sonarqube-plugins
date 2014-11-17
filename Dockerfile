@@ -68,3 +68,8 @@ ENV ISSUES_DENSITY_PLUGIN_VERSION 1.0
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-issues-density-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-issues-density-plugin/${ISSUES_DENSITY_PLUGIN_VERSION}/sonar-issues-density-plugin-${ISSUES_DENSITY_PLUGIN_VERSION}.jar
+
+ENV SUREFIRE_PLUGIN_VERSION 3.3.2
+RUN cd /opt/sonar/extensions/plugins && \
+	curl -sLo sonar-surefire-plugin-${SUREFIRE_PLUGIN_VERSION}.jar \
+    http://central.maven.org/maven2/org/codehaus/sonar/plugins/sonar-surefire-plugin/${SUREFIRE_PLUGIN_VERSION}/sonar-surefire-plugin-${SUREFIRE_PLUGIN_VERSION}.jar
