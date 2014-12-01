@@ -2,6 +2,18 @@ FROM webdizz/sonarqube:latest
 
 MAINTAINER Izzet Mustafaiev "izzet@mustafaiev.com"
 
+#Bundled plugins
+
+ENV JAVA_PLUGIN_VERSION 2.6
+RUN curl -sLo /opt/sonar/lib/bundled-plugins/sonar-java-plugin-${JAVA_PLUGIN_VERSION}.jar \
+	http://repository.codehaus.org/org/codehaus/sonar-plugins/java/sonar-java-plugin/${JAVA_PLUGIN_VERSION}/sonar-java-plugin-${JAVA_PLUGIN_VERSION}.jar \
+	&& rm -rf /opt/sonar/lib/bundled-plugins/sonar-java-plugin-2.4.jar
+
+ENV FINDBUGS_PLUGIN_VERSION 3.1
+RUN curl -sLo /opt/sonar/lib/bundled-plugins/sonar-findbugs-plugin-${FINDBUGS_PLUGIN_VERSION}.jar \
+	http://repository.codehaus.org/org/codehaus/sonar-plugins/java/sonar-findbugs-plugin/${FINDBUGS_PLUGIN_VERSION}/sonar-findbugs-plugin-${FINDBUGS_PLUGIN_VERSION}.jar \
+	&& rm -rf /opt/sonar/lib/bundled-plugins/sonar-findbugs-plugin-2.4.jar
+
 #Plugins
 
 ENV SCMACT_PLUGIN_VERSION 1.8
@@ -39,17 +51,12 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-sonargraph-plugin-${SONARGRAPH_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-sonargraph-plugin/${SONARGRAPH_PLUGIN_VERSION}/sonar-sonargraph-plugin-${SONARGRAPH_PLUGIN_VERSION}.jar
 
-ENV JS_PLUGIN_VERSION 2.1
+ENV JS_PLUGIN_VERSION 2.2
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/javascript/sonar-javascript-plugin/${JS_PLUGIN_VERSION}/sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar
 
-ENV SCALA_PLUGIN_VERSION 1.0.0
-RUN cd /opt/sonar/extensions/plugins && \
-        curl -sLo sonar-scala-plugin-${SCALA_PLUGIN_VERSION}.jar \
-	https://github.com/SonarCommunity/sonar-scala/releases/download/${SCALA_PLUGIN_VERSION}-SNAPSHOT/sonar-scala-plugin-${SCALA_PLUGIN_VERSION}-SNAPSHOT.jar
-
-ENV ISSUE_ASSIGN_PLUGIN_VERSION 1.4
+ENV ISSUE_ASSIGN_PLUGIN_VERSION 1.5
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-issue-assign-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-issue-assign-plugin/${ISSUE_ASSIGN_PLUGIN_VERSION}/sonar-issue-assign-plugin-${ISSUE_ASSIGN_PLUGIN_VERSION}.jar
@@ -64,7 +71,7 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-issues-density-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-issues-density-plugin/${ISSUES_DENSITY_PLUGIN_VERSION}/sonar-issues-density-plugin-${ISSUES_DENSITY_PLUGIN_VERSION}.jar
 
-ENV SUREFIRE_PLUGIN_VERSION 3.3.2
+ENV PMD_PLUGIN_VERSION 2.3
 RUN cd /opt/sonar/extensions/plugins && \
-	curl -sLo sonar-surefire-plugin-${SUREFIRE_PLUGIN_VERSION}.jar \
-    http://central.maven.org/maven2/org/codehaus/sonar/plugins/sonar-surefire-plugin/${SUREFIRE_PLUGIN_VERSION}/sonar-surefire-plugin-${SUREFIRE_PLUGIN_VERSION}.jar
+	curl -sLo sonar-pmd-plugin-${PMD_PLUGIN_VERSION}.jar \
+    http://repository.codehaus.org/org/codehaus/sonar-plugins/java/sonar-pmd-plugin/${PMD_PLUGIN_VERSION}/sonar-pmd-plugin-${PMD_PLUGIN_VERSION}.jar
