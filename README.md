@@ -6,6 +6,6 @@ docker-sonarqube-plugins
 Usage
 --------------
 
-There is an assumption you have installed [Fig](http://www.fig.sh/) 
+There is an assumption you have installed [docker-compose](https://docs.docker.com/compose/) 
 
-    fig up
+    docker-compose up
