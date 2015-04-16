@@ -1,4 +1,4 @@
-FROM webdizz/sonarqube:5.0.1
+FROM webdizz/sonarqube:5.1
 
 MAINTAINER Izzet Mustafaiev "izzet@mustafaiev.com"
 
@@ -8,11 +8,11 @@ MAINTAINER Izzet Mustafaiev "izzet@mustafaiev.com"
 RUN ls -la /opt/sonar/lib/bundled-plugins
 RUN rm -rf /opt/sonar/lib/bundled-plugins/sonar-*-plugin-*.jar
 
-ENV JAVA_PLUGIN_VERSION 3.0
+ENV JAVA_PLUGIN_VERSION 3.1
 RUN curl -sLo /opt/sonar/lib/bundled-plugins/sonar-java-plugin-${JAVA_PLUGIN_VERSION}.jar \
 	http://repo1.maven.org/maven2/org/codehaus/sonar-plugins/java/sonar-java-plugin/${JAVA_PLUGIN_VERSION}/sonar-java-plugin-${JAVA_PLUGIN_VERSION}.jar
 
-ENV FINDBUGS_PLUGIN_VERSION 3.1
+ENV FINDBUGS_PLUGIN_VERSION 3.2
 RUN curl -sLo /opt/sonar/lib/bundled-plugins/sonar-findbugs-plugin-${FINDBUGS_PLUGIN_VERSION}.jar \
 	http://repo1.maven.org/maven2/org/codehaus/sonar-plugins/java/sonar-findbugs-plugin/${FINDBUGS_PLUGIN_VERSION}/sonar-findbugs-plugin-${FINDBUGS_PLUGIN_VERSION}.jar 
 
@@ -33,7 +33,7 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-scm-stats-plugin-${SCMSTAT_PLUGIN_VERSION}.jar \
     http://repo1.maven.org/maven2/org/codehaus/sonar-plugins/sonar-scm-stats-plugin/${SCMSTAT_PLUGIN_VERSION}/sonar-scm-stats-plugin-${SCMSTAT_PLUGIN_VERSION}.jar
 
-ENV TIMELINE_PLUGIN_VERSION 1.4
+ENV TIMELINE_PLUGIN_VERSION 1.5
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-timeline-plugin-${TIMELINE_PLUGIN_VERSION}.jar \
     http://repo1.maven.org/maven2/org/codehaus/sonar-plugins/sonar-timeline-plugin/${TIMELINE_PLUGIN_VERSION}/sonar-timeline-plugin-${TIMELINE_PLUGIN_VERSION}.jar
@@ -48,7 +48,7 @@ RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-sonargraph-plugin-${SONARGRAPH_PLUGIN_VERSION}.jar \
     http://repo1.maven.org/maven2/org/codehaus/sonar-plugins/sonar-sonargraph-plugin/${SONARGRAPH_PLUGIN_VERSION}/sonar-sonargraph-plugin-${SONARGRAPH_PLUGIN_VERSION}.jar
 
-ENV JS_PLUGIN_VERSION 2.3
+ENV JS_PLUGIN_VERSION 2.4
 RUN cd /opt/sonar/extensions/plugins && \
 	curl -sLo sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar \
     http://repo1.maven.org/maven2/org/codehaus/sonar-plugins/javascript/sonar-javascript-plugin/${JS_PLUGIN_VERSION}/sonar-javascript-plugin-${JS_PLUGIN_VERSION}.jar
