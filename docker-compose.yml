@@ -1,5 +1,5 @@
 sonar:
-  image: sonarqube-plugins
+  image: webdizz/sonarqube-plugins:5.1.2
   ports:
     - 9000:9000
   links:
